@@ -28,4 +28,5 @@ int main()
 {
     Car *car = new Car;
     Person person(car);
+    return 0;
 }
