@@ -1,35 +1,27 @@
 #include <iostream>
 using namespace std;
 
-void bubbleSort(int arr[], int l)
+void insertionSort(int arr[], int l)
 {
     int lenght = l;
     int temp;
-    bool swapped;
-    for  (int i = 0 ; i < lenght - 1 ; i++)
+    for (int i = 1 ; i < lenght ; i++)
     {
-        swapped = false;
-        for (int k = 0 ; k < lenght - 1 - i ; k++)
+        int k = i;
+        while (k != 0 && arr[k] < arr[k-1])
         {
-            if (arr[k] > arr[k+1])
-            {
-                swapped = true;
-                temp = arr[k+1];
-                arr[k+1] = arr[k];
-                arr[k] = temp;
-            }
-        }
-        if (!swapped)
-        {
-            break;
+            temp = arr[k-1];
+            arr[k-1] = arr[k];
+            arr[k] = temp;
+            k--;
         }
     }
 }
 
 int main()
 {
-    int arr[] = {5, 1, 12, -5, 16};
-    
+    int arr[] = {65, 50, 30, 35, 25, 45};
+
     int l = sizeof(arr)/sizeof(arr[0]);
 
     cout<<"------------------"<<endl;
@@ -40,7 +32,7 @@ int main()
         cout<<arr[i]<<endl;
     }
 
-    bubbleSort(arr, l);
+    insertionSort(arr, l);
 
     cout<<"------------------"<<endl;
     cout<<"After algorithm"<<endl;
